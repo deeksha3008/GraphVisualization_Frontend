@@ -1,0 +1,93 @@
+<div class="container">
+    <h2>Enter the text input</h2>
+    <app-text-input></app-text-input> 
+    <h2>Node CRUD Operations</h2>
+    
+    <!-- Form for Adding Node and Relationship -->
+    <div class="relationship-form">
+      <h2>Add Node and Relationship</h2>
+      <form (ngSubmit)="onSubmit()">
+        <label for="source">Source Node</label>
+        <input [(ngModel)]="source" name="source" placeholder="Source Node" required list="nodeNames">
+        <datalist id="nodeNames">
+          <option *ngFor="let node of nodes" [value]="node.name"></option>
+        </datalist>
+  
+        <label for="sourceLabel">Source Label</label>
+        <input [(ngModel)]="sourceLabel" name="sourceLabel" placeholder="Source Label" required list="labelTypes">
+        <datalist id="labelTypes">
+          <option *ngFor="let label of labels" [value]="label">{{label}}</option>
+        </datalist>
+  
+        <label for="target">Target Node</label>
+        <input [(ngModel)]="target" name="target" placeholder="Target Node" required list="nodeNames">
+        <datalist id="nodeNames">
+          <option *ngFor="let node of nodes" [value]="node.name"></option>
+        </datalist>
+  
+        <label for="targetLabel">Target Label</label>
+        <input [(ngModel)]="targetLabel" name="targetLabel" placeholder="Target Label" required list="labelTypes">
+        <datalist id="labelTypes">
+          <option *ngFor="let label of labels" [value]="label">{{label}}</option>
+        </datalist>
+  
+        <label for="type">Relationship Type</label>
+        <input [(ngModel)]="type" name="type" placeholder="Relationship Type" required list="relationshipTypes">
+        <datalist id="relationshipTypes">
+          <option *ngFor="let relationship of relationships" [value]="relationship"></option>
+        </datalist>
+  
+        <button type="submit">Add Node and Relationship</button>
+      </form>
+    </div>
+  
+    <!-- Form for Updating Relationship -->
+    <div class="relationship-form">
+      <h2>Update Relationship</h2>
+      <form (ngSubmit)="onSubmitUpdateRelationship()">
+        <label for="relationshipSource">Source Node</label>
+        <input [(ngModel)]="relationshipSource" name="relationshipSource" placeholder="Source Node" required list="nodeNames">
+        <datalist id="nodeNames">
+          <option *ngFor="let node of nodes" [value]="node.name"></option>
+        </datalist>
+  
+        <label for="oldRelationshipTarget">Old Target Node</label>
+        <input [(ngModel)]="oldRelationshipTarget" name="oldRelationshipTarget" placeholder="Old Target Node" required list="nodeNames">
+        <datalist id="nodeNames">
+          <option *ngFor="let node of nodes" [value]="node.name"></option>
+        </datalist>
+  
+        <label for="newRelationshipTarget">New Target Node</label>
+        <input [(ngModel)]="newRelationshipTarget" name="newRelationshipTarget" placeholder="New Target Node" required list="nodeNames">
+        <datalist id="nodeNames">
+          <option *ngFor="let node of nodes" [value]="node.name"></option>
+        </datalist>
+  
+        <label for="newRelationshipTargetLabel">New Target Node Label</label>
+        <input [(ngModel)]="newRelationshipTargetLabel" name="newRelationshipTargetLabel" placeholder="New Target Node Label" required list="labelTypes">
+        <datalist id="labelTypes">
+          <option *ngFor="let label of labels" [value]="label">{{label}}</option>
+        </datalist>
+  
+        <label for="relationshipType">Relationship Type</label>
+        <input [(ngModel)]="relationshipType" name="relationshipType" placeholder="Relationship Type" required list="relationshipTypes">
+        <datalist id="relationshipTypes">
+          <option *ngFor="let relationship of relationships" [value]="relationship"></option>
+        </datalist>
+  
+        <button type="submit">Update Relationship</button>
+      </form>
+    </div>
+  
+    <!-- Form for Deleting a Node -->
+    <div class="form-section delete-form">
+      <h3>Delete Node</h3>
+      <label for="deleteName">Node Name:</label>
+      <input id="deleteName" [(ngModel)]="name" placeholder="Name to delete" name="name" list="nodeNames">
+      <datalist id="nodeNames">
+        <option *ngFor="let node of nodes" [value]="node.name"></option>
+      </datalist>
+      <button (click)="deleteNode()">Delete Node</button>
+    </div>
+  </div>
+  

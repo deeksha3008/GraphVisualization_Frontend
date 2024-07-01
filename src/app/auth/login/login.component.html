@@ -1,0 +1,28 @@
+<div class="login-container">
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+      <label for="username">Username:</label>
+      <input
+        type="email"
+        id="username"
+        [(ngModel)]="username"
+        name="username"
+        required
+        email
+        #usernameInput="ngModel"
+      />
+      <div *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)">
+        <small *ngIf="usernameInput.errors?.['required']">Username is required.</small>
+        <small *ngIf="usernameInput.errors?.['email']">Enter a valid email.</small>
+      </div>
+  
+      <label for="password">Password:</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" required />
+      <button type="submit">Login</button>
+      <p *ngIf="error">{{ error }}</p>
+    </form>
+    <div class="register-container">
+      <button (click)="redirectToRegister()">Register</button>
+      <p>Want to sign up? Click Register.</p>
+    </div>
+  </div>
+  

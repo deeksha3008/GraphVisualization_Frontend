@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #3f51b5;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    margin: 0;
+    flex-grow: 1;
+  }
+  
+  header .logout-btn {
+    /* background-color: #f44336; */
+    background-color: #3f51b5;
+    /* color: white; */
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 1rem;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: row; /* Change this to row for side by side */
+    align-items: flex-start; /* Align items to the start */
+    justify-content: space-around; /* Space around for better spacing */
+    margin-top: 80px; /* Adjust this based on the header height */
+    padding: 1rem;
+    flex: 1;
+  }
+  
+  .card {
+    width: 40%; /* Adjust the width as needed */
+    /* margin: 1rem; */
+    overflow: auto; /* Enable scroll inside card */
+    height: calc(100vh - 150px); /* Adjust height based on available space */
+  }
+
+  .card-graph{
+    width: 60% !important;
+  }
+  
+  mat-card {
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
